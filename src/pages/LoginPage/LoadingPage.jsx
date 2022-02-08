@@ -1,4 +1,4 @@
-import LoadingForm from '../../components/LoginForm/LoginForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 import Section from '../../components/Section/Section';
 
 // Компонент страницы автозирации
@@ -12,7 +12,7 @@ export default function LoginPage() {
 
   return (
     <Section title="Log in to Phonebook">
-      <LoadingForm />
+      <LoginForm />
       {/* {isLoading && <Loader />} */}
     </Section>
   );

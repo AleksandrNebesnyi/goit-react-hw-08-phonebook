@@ -51,6 +51,16 @@ const App = () => {
               />
             }
           />
+          <Route
+            path="login"
+            element={
+              <PublicRoute
+                element={<LoginPage />}
+                redirectTo="/contacts"
+                restricted
+              />
+            }
+          />
         </Routes>
       </Suspense>
 
