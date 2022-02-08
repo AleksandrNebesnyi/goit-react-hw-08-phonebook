@@ -1,5 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { authUser } from '../../redux/auht/auth-selector';
+import { useRegisterUserMutation } from '../../redux/users/users-sliceApi';
 
 // import { authOperations, authSelectors } from '../../redux/auth';
 
@@ -12,20 +14,23 @@ import {
   Button,
 } from './RegisterForm.styled';
 
-const initialState = {
-  name: '',
-  email: '',
-  password: '',
-};
-
 // Компонент формы регистрации
 export default function RegisterForm() {
+  const initialState = {
+    name: sessionStorage.getItem('name') ?? '',
+    email: sessionStorage.getItem('email') ?? '',
+    password: '',
+  };
   const [state, setState] = useState(initialState);
   const { name, email, password } = state;
 
+  const [registerUserHook, { isLoading, error, isSuccess }] =
+    useRegisterUserMutation();
+
   //   const isLoading = useSelector(authSelectors.getLoading); // Селектор статуса загрузки
-  const isLoading = null;
-  const dispatch = useDispatch();
+  // const isAuthenticated = useSelector(authUser); // Селектор статуса авторизации юзера
+  // const isLoading = null;
+  // const dispatch = useDispatch();
 
   // Диспатчит операцию регистрации + useCallback
   //   const onRegister = useCallback(
@@ -46,8 +51,15 @@ export default function RegisterForm() {
 
   const hanldeSubmit = e => {
     e.preventDefault();
+    const onSubmit = async data => {
+      registerUserHook({
+        name,
+        email,
+        password,
+      });
+    };
 
-    // onRegister(state); // Вызовает операцию регистрации и передает данные из стейта
+    onSubmit(state); // Вызовает операцию регистрации и передает данные из стейта
 
     resetForm();
   };

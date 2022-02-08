@@ -4,10 +4,10 @@ export const Form = styled.form`
   width: 100%;
   margin: 0px auto 15px;
   padding: 15px;
-  border: 1px solid $border-color;
+  border: 1px solid #d4d4d4;
   border-radius: 4px;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: 768px) {
     width: 350px;
   }
 `;
@@ -18,7 +18,7 @@ export const LabelInput = styled.label`
 
   margin-bottom: 15px;
 
-  color: $secondary-color;
+  color: #333232;
 `;
 // Labels text
 export const Text = styled.span`
@@ -33,11 +33,11 @@ export const FormInput = styled.input`
 
   line-height: normal;
 
-  transition: all $transition-duration $timing-function;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:focus {
     outline: transparent;
-    border: 1px solid $main-color;
+    border: 1px solid #2196f3;
   }
 `;
 
@@ -53,14 +53,14 @@ export const Button = styled.button`
   border: 0px solid transparent;
   border-radius: 4px;
 
-  color: $clear-color;
-  background-color: $main-color;
+  color: #fff;
+  background-color: #2196f3;
 
-  box-shadow: $main-shadow;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
 
   opacity: 1;
 
-  transition: opacity $transition-duration $timing-function;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   cursor: pointer;
 
@@ -68,11 +68,11 @@ export const Button = styled.button`
   &:focus {
     opacity: 0.8;
 
-    transition: opacity $transition-duration $timing-function;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &:disabled {
-    background-color: $inactive-color;
+    background-color: #808080;
     cursor: auto;
   }
 `;

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const usersReducer = createApi({
+export const usersApi = createApi({
   reducerPath: 'users',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com/users',
@@ -142,4 +142,4 @@ export const {
   useLoginUserMutation,
   useLogoutUserMutation,
   useGetUserQuery,
-} = usersReducer;
+} = usersApi;

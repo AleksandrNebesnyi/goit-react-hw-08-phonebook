@@ -38,7 +38,7 @@ const persistConfig = {
 const persistedAuthReducer = persistReducer(persistConfig, authSlice.reducer);
 
 // Создание хранилища (корневой редюсер + прослойки + тулзы только для разработки)
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     [usersApi.reducerPath]: usersApi.reducer,
     [contactApi.reducerPath]: contactApi.reducer,
@@ -53,8 +53,8 @@ const store = configureStore({
 setupListeners(store.dispatch);
 
 // Обёртка хранилища в персистор
-const persistor = persistStore(store);
+export const persistor = persistStore(store);
 
-// Экспорт хранилища и обёртки хранилища
-// eslint-disable-next-line
-export default { store, persistor };
+// // Экспорт хранилища и обёртки хранилища
+// // eslint-disable-next-line
+// export default { store, persistor };

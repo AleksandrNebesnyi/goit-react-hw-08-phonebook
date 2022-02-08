@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLoginUserMutation } from '../../redux/users/users-sliceApi';
 import {
   Form,
   LabelInput,
@@ -12,16 +13,16 @@ import {
 // Компонент формы авторизации
 export default function LoginForm() {
   const initialState = {
-    email: '',
+    email: localStorage.getItem('email') ?? '',
     password: '',
   };
   const [state, setState] = useState(initialState);
   const { email, password } = state;
-  const isLoading = null;
 
   //   const isLoading = useSelector(authSelectors.getLoading); // Селектор статуса загрузки
-
-  const dispatch = useDispatch();
+  const [loginUserHook, { isLoading, isSuccess, error }] =
+    useLoginUserMutation();
+  // const dispatch = useDispatch();
 
   // Диспатчит операцию входа + useCallback
   //   const onLogin = useCallback(
@@ -42,8 +43,11 @@ export default function LoginForm() {
 
   const hanldeSubmit = e => {
     e.preventDefault();
+    const onSubmit = data => {
+      loginUserHook({ email, password });
+    };
 
-    // onLogin(state); // Вызов функции операции входа и передает данные из стейта
+    onSubmit(state); // Вызов функции операции входа и передает данные из стейта
 
     resetForm();
   };
