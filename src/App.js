@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Container from 'components/Container/Container.jsx';
 import AppBar from './components/AppBar/AppBar.jsx';
@@ -8,6 +8,7 @@ import PublicRoute from './components/PublicRoute/PublicRoute.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useGetUserQuery } from './redux/users/users-sliceApi';
+import { usersApi } from './redux/users/users-sliceApi';
 
 const HomePage = lazy(() =>
   import('./pages/HomePage/HomePage.jsx' /* webpackChunkName: "home-page" */),
@@ -30,8 +31,9 @@ const RegisterPage = lazy(() =>
 );
 
 const App = () => {
-  const { getUser, isError } = useGetUserQuery();
-
+  const { data } = usersApi.endpoints.getUser.useQuery();
+  const { isError } = useGetUserQuery();
+  console.log(data);
   console.log('errrrr', isError);
   // console.log(getUser);
   // const [getUser] = useGetUserQuery();

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
-import '../../index';
 
 import { BoxSection, Title } from './Section.styled';
 
