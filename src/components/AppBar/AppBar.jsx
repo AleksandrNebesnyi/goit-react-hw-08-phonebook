@@ -8,11 +8,11 @@ import UserMenu from 'components/UserMenu/UserMenu';
 // Компонент хедера приложения (бара)
 export default function AppBar() {
   const isAuthenticated = useSelector(authUser); // Селектор статуса авторизации юзера
-  //   console.log(isAuthenticated);
+  console.log('isAuthenticated-AppBar', isAuthenticated);
 
   return (
     <Header>
-      <Navigation/>
+      <Navigation />
       {isAuthenticated ? <UserMenu /> : <AuthNav />}
     </Header>
   );

@@ -14,11 +14,11 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        {/* <PersistGate loader={null} persistor={persistor}> */}
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-        {/* </PersistGate> */}
+        <PersistGate loader={null} persistor={persistor}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </PersistGate>
       </Provider>
     </ThemeProvider>
   </React.StrictMode>,

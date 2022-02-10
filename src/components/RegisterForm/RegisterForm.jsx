@@ -1,9 +1,5 @@
-import { useState, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { authUser } from '../../redux/auht/auth-selector';
+import { useState } from 'react';
 import { useRegisterUserMutation } from '../../redux/users/users-sliceApi';
-
-// import { authOperations, authSelectors } from '../../redux/auth';
 
 import {
   Form,

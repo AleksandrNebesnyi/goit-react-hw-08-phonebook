@@ -1,16 +1,18 @@
 import PropTypes from 'prop-types';
-import { BoxSection, Title } from './Section.styled';
 import { CSSTransition } from 'react-transition-group';
-// import styles from '../../index';
+import '../../index';
+
+import { BoxSection, Title } from './Section.styled';
 
 const Section = ({ title, children }) => {
   return (
-    // <CSSTransition in={true} appear={true} timeout={500} classNames={'appear'}>
     <BoxSection>
-      <Title>{title}</Title>
+      <CSSTransition in={true} timeout={500} unmountOnExit classNames="appear">
+        <Title>{title}</Title>
+      </CSSTransition>
+
       {children}
     </BoxSection>
-    // </CSSTransition>
   );
 };
 

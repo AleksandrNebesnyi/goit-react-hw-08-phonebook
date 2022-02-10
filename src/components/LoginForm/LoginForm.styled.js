@@ -9,20 +9,20 @@ export const Form = styled.form`
   border: 1px solid #d4d4d4;
   border-radius: 4px;
 
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: 768px) {
     width: 350px;
   }
 `;
 
 // Labels on inputs
 
-export const LabelInput = styled.input`
+export const LabelInput = styled.label`
   display: flex;
   flex-direction: column;
 
   margin-bottom: 15px;
 
-  color: $secondary-color;
+  color: #333232;
 `;
 // Span text
 export const Text = styled.span`

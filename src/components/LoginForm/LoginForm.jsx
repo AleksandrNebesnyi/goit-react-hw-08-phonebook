@@ -1,5 +1,4 @@
-import { useState, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import { useLoginUserMutation } from '../../redux/users/users-sliceApi';
 import {
   Form,
@@ -57,44 +56,46 @@ export default function LoginForm() {
   };
 
   return (
-    <Form onSubmit={hanldeSubmit}>
-      <LabelInput>
-        <Text>Email</Text>
+    <div>
+      <Form onSubmit={hanldeSubmit}>
+        <LabelInput>
+          <Text>Email</Text>
 
-        <FormlInput
-          type="email"
-          name="email"
-          value={email}
-          onChange={hanldeChange}
-          placeholder="Your e-mail"
-          aria-label="Input for your email"
-          disabled={isLoading}
-          autoComplete="email"
-          required
-        />
-      </LabelInput>
+          <FormlInput
+            type="email"
+            name="email"
+            value={email}
+            onChange={hanldeChange}
+            placeholder="Your e-mail"
+            aria-label="Input for your email"
+            disabled={isLoading}
+            autoComplete="email"
+            required
+          />
+        </LabelInput>
 
-      <LabelInput>
-        <Text>Password</Text>
+        <LabelInput>
+          <Text>Password</Text>
 
-        <FormlInput
-          type="password"
-          name="password"
-          value={password}
-          onChange={hanldeChange}
-          placeholder="Your password"
-          aria-label="Input for your password"
-          disabled={isLoading}
-          autoComplete="current-password"
-          required
-        />
-      </LabelInput>
+          <FormlInput
+            type="password"
+            name="password"
+            value={password}
+            onChange={hanldeChange}
+            placeholder="Your password"
+            aria-label="Input for your password"
+            disabled={isLoading}
+            autoComplete="current-password"
+            required
+          />
+        </LabelInput>
 
-      <ButtonWrapper>
-        <Button type="submit" disabled={isLoading}>
-          Log in
-        </Button>
-      </ButtonWrapper>
-    </Form>
+        <ButtonWrapper>
+          <Button type="submit" disabled={isLoading}>
+            Log in
+          </Button>
+        </ButtonWrapper>
+      </Form>
+    </div>
   );
 }

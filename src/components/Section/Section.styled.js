@@ -4,6 +4,7 @@ export const BoxSection = styled.div`
   /* padding: 15px;
 text-align: center; */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
@@ -11,8 +12,9 @@ export const Title = styled.h1`
   /* margin-bottom: 15px; */
   display: inline;
   margin: 10px 0;
+  padding: 20px 0;
 
-  font-size: 1.5rem;
+  font-size: 2rem;
 
   color: #2196f3;
 
@@ -31,13 +33,3 @@ export const Title = styled.h1`
     font-size: 2rem;
   }
 `;
-
-// Title react animation
-// .appear {
-//     transform: translateX(-100%);
-//   }
-
-//   .appearActive {
-//     transform: translateX(0);
-//     transition: all 500ms linear;
-//   }

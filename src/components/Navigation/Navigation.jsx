@@ -11,24 +11,12 @@ export default function Navigation() {
     <nav>
       <List>
         <Item>
-          <NavLinkStyled
-            to={'/'}
-            // className={styles.link}
-            // activeClassName={styles['link--active']}
-          >
-            Home
-          </NavLinkStyled>
+          <NavLinkStyled to={'/'}>Home</NavLinkStyled>
         </Item>
 
         {isAuthenticated && (
           <Item>
-            <NavLinkStyled
-              to={'/contacts'}
-              //   className={styles.link}
-              //   activeClassName={styles['link--active']}
-            >
-              Contacts
-            </NavLinkStyled>
+            <NavLinkStyled to={'/contacts'}>Contacts</NavLinkStyled>
           </Item>
         )}
       </List>

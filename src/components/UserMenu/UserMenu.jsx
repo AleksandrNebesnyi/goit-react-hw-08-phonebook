@@ -1,6 +1,4 @@
-import { useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// import { authSelectors, authOperations } from '../../redux/auth';
+import { useSelector } from 'react-redux';
 import { getUserName } from '../../redux/auht/auth-selector';
 import { useLogoutUserMutation } from '../../redux/users/users-sliceApi';
 import {
@@ -16,14 +14,7 @@ import {
 export default function UserMenu() {
   const name = useSelector(getUserName); // Селектор имя юзера
 
-  const dispatch = useDispatch();
-  const [logoutUserHook, { error }] = useLogoutUserMutation();
-  // const onLogout = logoutUserHook();
-  // Диспатчит операцию выхода из профиля + useCallback
-  //   const onLogout = useCallback(
-  //     () => dispatch(authOperations.logOut()),
-  //     [dispatch],
-  //   );
+  const [logoutUserHook] = useLogoutUserMutation();
 
   return (
     <Profile>

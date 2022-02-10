@@ -1,4 +1,4 @@
-import { Route, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { authUser } from '../../redux/auht/auth-selector';
 import { toast } from 'react-toastify';
@@ -25,6 +25,7 @@ import { toast } from 'react-toastify';
 // }
 export default function PrivateRoute({ element, redirectTo }) {
   const auth = useSelector(authUser);
+  console.log('auth ', auth);
   if (!redirectTo) {
     toast.error('No path for redirect');
     return <Navigate to="/" />;

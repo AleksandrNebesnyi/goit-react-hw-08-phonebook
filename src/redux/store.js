@@ -1,5 +1,4 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'; // Импорт функции создания хранилища и прослойки
-// import logger from 'redux-logger';
 
 import { setupListeners } from '@reduxjs/toolkit/query';
 import {
@@ -18,14 +17,14 @@ import { contactApi } from './contact/contacts-sliceApi';
 import { usersApi } from './users/users-sliceApi';
 import { authSlice } from './auht/auth-slice';
 
-// Создание прослоек + логгер. Важен порядок!
+// Создание прослоек. Важен порядок!
 const middleware = [
   ...getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  // logger,
+
   contactApi.middleware,
   usersApi.middleware,
 ];
@@ -54,7 +53,3 @@ setupListeners(store.dispatch);
 
 // Обёртка хранилища в персистор
 export const persistor = persistStore(store);
-
-// // Экспорт хранилища и обёртки хранилища
-// // eslint-disable-next-line
-// export default { store, persistor };

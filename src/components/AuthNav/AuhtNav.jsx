@@ -5,24 +5,11 @@ export default function AuthNav() {
   return (
     <List>
       <Item>
-        <NavLinkStyled
-          to={'/register'}
-          // className={styles.link}
-          // activeClassName={styles['link--active']}
-        >
-          Sign up
-        </NavLinkStyled>
+        <NavLinkStyled to={'/register'}>Sign up</NavLinkStyled>
       </Item>
 
       <Item>
-        <NavLinkStyled
-          exact
-          to={'/login'}
-          // className={styles.link}
-          // activeClassName={styles['link--active']}
-        >
-          Log in
-        </NavLinkStyled>
+        <NavLinkStyled to={'/login'}>Log in</NavLinkStyled>
       </Item>
     </List>
   );
