@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Container from 'components/Container/Container.jsx';
 import AppBar from './components/AppBar/AppBar.jsx';
@@ -35,10 +35,6 @@ const App = () => {
   const { isError } = useGetUserQuery();
   console.log(data);
   console.log('errrrr', isError);
-  // console.log(getUser);
-  // const [getUser] = useGetUserQuery();
-  // console.log(getUser);
-  // const isFetchingCurrentUser = useSelector(authSelectors.getFetchingCurrent);
 
   return (
     <Container>
