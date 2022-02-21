@@ -20,21 +20,7 @@ export default function RegisterForm() {
   const [state, setState] = useState(initialState);
   const { name, email, password } = state;
 
-  const [registerUserHook, { isLoading, error, isSuccess }] =
-    useRegisterUserMutation();
-
-  //   const isLoading = useSelector(authSelectors.getLoading); // Селектор статуса загрузки
-  // const isAuthenticated = useSelector(authUser); // Селектор статуса авторизации юзера
-  // const isLoading = null;
-  // const dispatch = useDispatch();
-
-  // Диспатчит операцию регистрации + useCallback
-  //   const onRegister = useCallback(
-  //     state => {
-  //         dispatch(authOperations.register(state));
-  //     },
-  //     [dispatch],
-  //   );
+  const [registerUserHook, { isLoading }] = useRegisterUserMutation();
 
   const hanldeChange = e => {
     const { name, value } = e.target;

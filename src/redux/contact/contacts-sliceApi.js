@@ -37,3 +37,7 @@ export const {
   useDeleteContactMutation,
   useCreateContactMutation,
 } = contactApi;
+
+//  invalidatesTags: result =>
+//       result ? [{ type: 'contacts', id: result.id }] : ['contacts'],
+//   }),

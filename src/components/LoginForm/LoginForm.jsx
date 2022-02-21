@@ -19,17 +19,7 @@ export default function LoginForm() {
   const { email, password } = state;
 
   //   const isLoading = useSelector(authSelectors.getLoading); // Селектор статуса загрузки
-  const [loginUserHook, { isLoading, isSuccess, error }] =
-    useLoginUserMutation();
-  // const dispatch = useDispatch();
-
-  // Диспатчит операцию входа + useCallback
-  //   const onLogin = useCallback(
-  //     state => {
-  //       dispatch(authOperations.logIn(state));
-  //     },
-  //     [dispatch],
-  //   );
+  const [loginUserHook, { isLoading }] = useLoginUserMutation();
 
   const hanldeChange = e => {
     const { name, value } = e.target;

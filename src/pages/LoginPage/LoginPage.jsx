@@ -7,7 +7,7 @@ import { useLoginUserMutation } from '../../redux/users/users-sliceApi';
 export default function LoginPage() {
   const [data, { isLoading }] = useLoginUserMutation(); // Селектор статуса загрузки
 
-  // console.log('data', data);
+  console.log('data', data);
   console.log('isLoading', isLoading);
 
   return (

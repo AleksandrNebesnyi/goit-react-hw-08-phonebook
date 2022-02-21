@@ -8,7 +8,7 @@ import PublicRoute from './components/PublicRoute/PublicRoute.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useGetUserQuery } from './redux/users/users-sliceApi';
-import { usersApi } from './redux/users/users-sliceApi';
+// import { usersApi } from './redux/users/users-sliceApi';
 
 const HomePage = lazy(() =>
   import('./pages/HomePage/HomePage.jsx' /* webpackChunkName: "home-page" */),
@@ -31,7 +31,7 @@ const RegisterPage = lazy(() =>
 );
 
 const App = () => {
-  const { data } = usersApi.endpoints.getUser.useQuery();
+  const { data } = useGetUserQuery();
   const { isError } = useGetUserQuery();
   console.log(data);
   console.log('errrrr', isError);
