@@ -2,8 +2,7 @@
   "name": "goit-react-hw-08-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AleksandrNebesnyi.github.io/goit-react-hw-08-phonebook",
-  "dependencies": {
+    "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@reduxjs/toolkit": "^1.7.1",
