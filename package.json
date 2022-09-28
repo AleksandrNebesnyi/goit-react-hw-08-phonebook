@@ -10,7 +10,13 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-redux": "^7.1.24",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.26",
     "animate.css": "^4.1.1",
+    "caniuse-lite": "^1.0.30001412",
     "gh-pages": "^3.2.3",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
@@ -30,8 +36,7 @@
     "react-transition-group": "^4.4.2",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
-    "styled-components": "^5.3.3",
-    "web-vitals": "^1.1.2"
+    "styled-components": "^5.3.3"
   },
   "lint-staged": {
     "src/**/*.{json,css,scss,md}": [
@@ -72,5 +77,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "typescript": "^4.8.4"
   }
 }

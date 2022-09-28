@@ -10,17 +10,35 @@ import './index.css';
 import { store, persistor } from './redux/store';
 import App from './App';
 
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <ThemeProvider theme={theme}>
+//       <Provider store={store}>
+//         <PersistGate loader={null} persistor={persistor}>
+//           <BrowserRouter>
+//             <App />
+//           </BrowserRouter>
+//         </PersistGate>
+//       </Provider>
+//     </ThemeProvider>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <Provider store={store}>
-        <PersistGate loader={null} persistor={persistor}>
+    <Provider
+      store={store}
+      children={
+        <PersistGate loading={null} persistor={persistor}>
           <BrowserRouter>
             <App />
           </BrowserRouter>
         </PersistGate>
-      </Provider>
+      }
+    />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
+
