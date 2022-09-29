@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'; // Импорт функции создания хранилища и прослойки
+import { configureStore } from '@reduxjs/toolkit'; // Импорт функции создания хранилища и прослойки
 
 import { setupListeners } from '@reduxjs/toolkit/query';
 import {
@@ -18,16 +18,16 @@ import { usersApi } from './users/users-sliceApi';
 import { authSlice } from './auht/auth-slice';
 
 // Создание прослоек. Важен порядок!
-const middleware = [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
+// const middleware = [
+//   ...getDefaultMiddleware({
+//     serializableCheck: {
+//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//     },
+//   }),
 
-  contactApi.middleware,
-  usersApi.middleware,
-];
+//   contactApi.middleware,
+//   usersApi.middleware,
+// ];
 
 const persistConfig = {
   key: 'auth',
@@ -45,7 +45,13 @@ export const store = configureStore({
     filter: filterReduser,
   },
 
-  middleware,
+  middleware: getDefaultMiddleware =>
+  getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }).concat(contactApi.middleware, usersApi.middleware),
+// otherMiddlewares,
   devTools: process.env.NODE_ENV === 'development',
 });
 
@@ -53,3 +59,9 @@ setupListeners(store.dispatch);
 
 // Обёртка хранилища в персистор
 export const persistor = persistStore(store);
+
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch

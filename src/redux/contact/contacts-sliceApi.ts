@@ -1,5 +1,17 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+
+interface IContacts {
+    id: number;
+    name: string;
+    phone: string;
+}
+
+
+type ContactsResponse =IContacts[]
+
+
+
 export const contactApi = createApi({
   reducerPath: 'contactApi',
   baseQuery: fetchBaseQuery({
@@ -7,11 +19,11 @@ export const contactApi = createApi({
   }),
   tagTypes: ['Contact'],
   endpoints: builder => ({
-    fetchContacts: builder.query({
+    fetchContacts: builder.query<ContactsResponse, void>({
       query: () => '/contacts',
       providesTags: ['Contact'],
     }),
-    deleteContact: builder.mutation({
+    deleteContact: builder.mutation<IContacts, number>({
       query: contactId => ({
         url: `/contacts/${contactId}`,
         method: 'DELETE',

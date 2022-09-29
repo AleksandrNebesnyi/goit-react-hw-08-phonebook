@@ -1,10 +1,12 @@
+import {BreakPoints} from './globalStyleType'
+
 export const theme = Object.freeze({
   breakpoints: {
-    mobile: '480px',
-    totablet: '767px',
-    tablet: '768px',
-    todesktop: '1199px',
-    desktop: '1200px',
+    mobile:BreakPoints.mobile ,
+    totablet: BreakPoints.totablet,
+    tablet: BreakPoints.tablet,
+    todesktop: BreakPoints.todesktop,
+    desktop: BreakPoints.desktop,
   },
 
   colors: {
