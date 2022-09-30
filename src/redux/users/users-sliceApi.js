@@ -1,5 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+
+
+
+
 export const usersApi = createApi({
   reducerPath: 'users',
   baseQuery: fetchBaseQuery({
@@ -15,7 +19,7 @@ export const usersApi = createApi({
   tagTypes: ['user'],
   endpoints: builder => ({
     registerUser: builder.mutation({
-      queryFn: async (contact, queryApi, extraOptions, baseQuery) => {
+      queryFn: async (contact, baseQuery) => {
         const res = await baseQuery({
           url: '/signup',
           method: 'POST',

@@ -2,9 +2,15 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 
 interface IContacts {
-    id: number;
+    id: string;
     name: string;
     phone: string;
+}
+
+interface IContact {
+  
+  name: string;
+  phone: string;
 }
 
 
@@ -30,8 +36,8 @@ export const contactApi = createApi({
       }),
       invalidatesTags: ['Contact'],
     }),
-    createContact: builder.mutation({
-      query: (name, phone) => ({
+    createContact: builder.mutation<IContacts, IContact>({
+      query: ({name, phone}) => ({
         url: '/contacts',
         method: 'POST',
         body: {
@@ -53,3 +59,5 @@ export const {
 //  invalidatesTags: result =>
 //       result ? [{ type: 'contacts', id: result.id }] : ['contacts'],
 //   }),
+
+// { id: number; data: Partial<Photo> }
