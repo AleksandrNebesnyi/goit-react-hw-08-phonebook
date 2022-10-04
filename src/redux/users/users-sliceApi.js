@@ -20,7 +20,7 @@ export const usersApi = createApi({
   endpoints: builder => ({
     registerUser: builder.mutation({
       queryFn: async (contact, baseQuery) => {
-        const res = await baseQuery({
+        const res = await baseQuery({ 
           url: '/signup',
           method: 'POST',
           body: contact,

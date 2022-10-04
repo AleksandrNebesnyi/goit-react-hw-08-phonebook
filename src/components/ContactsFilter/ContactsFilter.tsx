@@ -1,14 +1,15 @@
-import { useSelector, useDispatch } from 'react-redux'; // Импортируем хуки для использования стейта и доставки экшинов прямо в компоненте
+import { FC } from 'react';
+// import { useSelector, useDispatch } from 'react-redux'; // Импортируем хуки для использования стейта и доставки экшинов прямо в компоненте
 import { changeFilter } from 'redux/contact/contacts-actions'; // Импортируем экшны для диспатча
 import { getFilter } from 'redux/contact/contacts-selector'; // Импортируем части стейта из selector
 import { Form, Label, Input } from './ContactsFilter.styled';
-import PropTypes from 'prop-types'; //Стили
-
+// import PropTypes from 'prop-types'; //Стили
+import {useAppDispatch, useAppSelector} from '../../hooks'
 // Принимает значение с поля фильтра и метод пишущий в стейт
 
-const ContactsFilter = () => {
-  const filter = useSelector(getFilter);
-  const dispatch = useDispatch();
+const ContactsFilter:FC = () => {
+  const filter = useAppSelector(getFilter);
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -27,8 +28,8 @@ const ContactsFilter = () => {
     </>
   );
 };
-ContactsFilter.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-};
+// ContactsFilter.propTypes = {
+//   value: PropTypes.string,
+//   onChange: PropTypes.func,
+// };
 export default ContactsFilter;

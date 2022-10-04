@@ -1,11 +1,19 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Item, Name, Number, Button } from './ContactItem.styled';
 import { useDeleteContactMutation } from 'redux/contact/contacts-sliceApi';
 import Loader from '../Loader/Loader';
+import {IContact} from '../../types/contactTypes';
+
 
 // Принимает один контакт и метод для удаления контакта
 
-const ContactItem = ({ contact }) => {
+interface Props {
+  key: string;
+ contact:IContact;
+  
+}
+
+const ContactItem:React.FC<Props> = (_, contact) => {
   const { name, phone, id } = contact;
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
 
@@ -26,10 +34,10 @@ const ContactItem = ({ contact }) => {
   );
 };
 
-ContactItem.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
-  phone: PropTypes.string,
-};
+// ContactItem.propTypes = {
+//   id: PropTypes.string,
+//   name: PropTypes.string,
+//   phone: PropTypes.string,
+// };
 
 export default ContactItem;

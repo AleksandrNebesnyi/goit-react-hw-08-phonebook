@@ -1,3 +1,4 @@
+
 import { List, Item, NavLinkStyled } from './AuthNav.styled';
 
 // Компонент меню регистрации и авторизации
