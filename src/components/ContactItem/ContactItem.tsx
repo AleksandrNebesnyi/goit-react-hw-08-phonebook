@@ -8,17 +8,17 @@ import {IContact} from '../../types/contactTypes';
 // Принимает один контакт и метод для удаления контакта
 
 interface Props {
-  key: string;
+ 
  contact:IContact;
   
 }
 
-const ContactItem:React.FC<Props> = (_, contact) => {
-  const { name, phone, id } = contact;
+const ContactItem:React.FC<Props> = ( {contact}) => {
+  const { id, name, phone } = contact;
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
 
   return (
-    <Item>
+    <Item  >
       <Name>{name}: </Name>
       <Number href={`tel:${phone}`}>{phone}</Number>
       <Button

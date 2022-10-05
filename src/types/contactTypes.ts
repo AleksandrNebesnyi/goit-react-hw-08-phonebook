@@ -8,7 +8,7 @@ export interface IContact {
  export  interface IContactBody {
   
     name: string;
-  phone: string;
+    phone: string;
 }
 
 

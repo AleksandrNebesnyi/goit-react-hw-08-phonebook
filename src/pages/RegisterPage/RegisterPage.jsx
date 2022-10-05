@@ -13,5 +13,4 @@ export default function RegisterPage() {
       <RegisterForm />
       {isLoading && <Loader />}
     </Section>
-  );
-}
+  )}

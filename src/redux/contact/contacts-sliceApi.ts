@@ -1,20 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import {IContact,IContactBody, TContactsResponse} from '../../types/contactTypes'
-// interface IContacts {
-//     id: string;
-//     name: string;
-//     phone: string;
-// }
 
-// interface IContact {
-
-//     name: string;
-//   phone: string;
-// }
-
-
-// type ContactsResponse =IContacts[]
 
 
 
@@ -36,7 +23,7 @@ export const contactApi = createApi({
       }),
       invalidatesTags: ['Contact'],
     }),
-    createContact: builder.mutation<IContact, IContactBody>({
+    createContact: builder.mutation<TContactsResponse, IContactBody>({
       query: ({name, phone}) => ({
         url: '/contacts',
         method: 'POST',

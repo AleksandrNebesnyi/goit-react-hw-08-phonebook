@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+import {  useState } from 'react';
 import { useRegisterUserMutation } from '../../redux/users/users-sliceApi';
 
 import {
@@ -9,6 +10,15 @@ import {
   ButttonWrapper,
   Button,
 } from './RegisterForm.styled';
+
+
+
+
+interface IData  {
+  name:string,
+  email:string,
+  password:string,
+}
 
 // Компонент формы регистрации
 export default function RegisterForm() {
@@ -22,7 +32,7 @@ export default function RegisterForm() {
 
   const [registerUserHook, { isLoading }] = useRegisterUserMutation();
 
-  const hanldeChange = e => {
+  const hanldeChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setState(prev => ({
@@ -31,9 +41,9 @@ export default function RegisterForm() {
     }));
   };
 
-  const hanldeSubmit = e => {
+  const hanldeSubmit = (e:React.FormEvent) => {
     e.preventDefault();
-    const onSubmit = async data => {
+    const onSubmit = async (data:IData ) => {
       registerUserHook({
         name,
         email,

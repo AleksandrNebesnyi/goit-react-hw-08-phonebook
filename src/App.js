@@ -1,8 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Container from 'components/Container/Container.jsx';
-import AppBar from './components/AppBar/AppBar.jsx';
-import Loader from './components/Loader/Loader.jsx';
+import Container from 'components/Container/Container';
+import AppBar from './components/AppBar/AppBar';
+import Loader from './components/Loader/Loader';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import PublicRoute from './components/PublicRoute/PublicRoute.jsx';
 import { ToastContainer } from 'react-toastify';

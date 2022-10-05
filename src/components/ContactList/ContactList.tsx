@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 // import { IContact} from '../../types/contactTypes'
 const ContactList:React.FC = () => {
   const { data: contacts, isFetching, error } = useFetchContactsQuery();
+ 
   const filter =useAppSelector(getFilter, shallowEqual);
 
   useEffect(() => {
@@ -23,11 +24,12 @@ const ContactList:React.FC = () => {
 
 
   const filteredContacts = () => {
+
     return contacts?.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase()),
     );
   };
-
+  console.log("contactsList",filteredContacts());
   return (
     <List>
       {contacts &&

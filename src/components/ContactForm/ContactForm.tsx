@@ -6,7 +6,7 @@ import {
   useCreateContactMutation,
 } from 'redux/contact/contacts-sliceApi';
 
-const ContactForm = () => {
+const ContactForm:React.FC = () => {
   // Локальный стейт контакта
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -15,7 +15,7 @@ const ContactForm = () => {
 
   const [createContact, { isLoading }] = useCreateContactMutation();
 
-  const handleChange = event => {
+  const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
     switch (name) {
@@ -33,11 +33,11 @@ const ContactForm = () => {
   };
 
   // Метод на отправке формы. Формирует из локального стейта контакт и передает на бэкенд.
-  const handleSubmit = event => {
+  const handleSubmit = (event:React.FormEvent) => {
     event.preventDefault();
     // Проверка на дубликат
     const normalizedContact = name.toLowerCase();
-    const duplicateName = contacts.find(
+    const duplicateName = contacts?.find(
       contact => contact.name.toLowerCase() === normalizedContact,
     );
 
@@ -47,7 +47,7 @@ const ContactForm = () => {
       return;
     }
 
-    createContact(name, phone);
+    createContact({name, phone});
     toast.success(`${name} is added to the contact list!`);
     resetForm();
   };
